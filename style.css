@@ -1,44 +1,127 @@
 *{
     box-sizing: border-box;
-    font-family: sans-serif ;
 }
 
-body{ 
-    background-color: rgb(141, 235, 251);
+body{
     margin: 0;
-    padding: 0;
+    background-color: aqua;
+    font-family: sans-serif;
 }
 
-.quiz_wrapper{
-    height: 500px;
-    width: 700px;
+.custom-box{
+    max-width: 800px;
     background-color: white;
-    margin: 30px auto;
+    margin:30px auto;
+    padding: 50px 40px;
+    border-radius: 10px;
+}
+.quiz-home-box{
+    text-align: center;
+    display: none;
+}
+
+.quiz-home-box h4{
+    font-size: 40px;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 30px;
+}
+
+.btn{
+    background-color: coral;
+    text-align: center;
+    padding: 10px 60px;
+    color:white;
+    border: none;
     border-radius: 8px;
-    padding:30px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid chocolate;
 }
 
-.quiz_wrapper .questions1{
-    padding: 15px;
-    background: purple;
-    border-radius: 8px;
-    color: #ffffff;
-    font-style: 20px;
-    float: left;
-    width: 100%;
+.btn:focus{
+    outline: none;
 }
 
-.quiz_wrapper .options{
-      float: left; 
-      width: 100%;
+.quiz-box{
+    background-color: white;
+
 }
 
-.quiz_wrapper .options ul {
-    list-style: none;
-    padding: 0px;
+.quiz-box .stats{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
-.quiz_wrapper .options ul li {
+.quiz-box .stats .quiz-time{
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    /*background-color: red;*/
+    text-align: left;
+}
+
+.quiz-box .stats .quiz-time .remaining-time{
+    height: 60px;
+    width: 60px;
+    color: rgb(80, 9, 80);
+    border: 2px solid rgb(80, 9, 80);
+    font-weight: 800;
+    line-height: 56px;
+    text-align: center;
+    border-radius: 30%;
+}
+
+.quiz-box .stats .score-board{
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    /*background-color: blue;*/
+    text-align: right;
+}
+
+.quiz-box .stats .score-board .correct-answers{
+    font-weight: 800;
+}
+
+.quiz-box .question-box{
+    background-color: rgb(80, 9, 80);
+    color: white;
+    padding: 30px 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 2px solid purple;
+    text-align: center;
+    position: relative;
+}
+
+.quiz-box .question-box .current-question-num{ 
+    height: 70px;
+    width: 70px;
+    background-color: white;
+    border: 2px solid violet;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 30%;
+    line-height: 69px;
+    text-align: center;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -35px;
+    z-index: 1;
+}
+
+.quiz-box .question-box .question-text{
+    font-size: 28px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+    margin-top: 40px;
+}
+
+.quiz-box .option-box .option{
     display: inline-block;
     background-color: grey;
     width: 80%;
@@ -49,38 +132,41 @@ body{
     color: #ffffff;
 }
 
-.quiz_wrapper .score{
-    float: left;
-    width: 100%;
-    padding: 10px 0px;
+.quiz-box .option-box .option.correct{
+    background-color: chartreuse;
+    border-color: green;
+    color: white;
 }
 
-.quiz_wrapper .score .next{
-    width: 40%;
-    float: left;
+.quiz-box .option-box .option.wrong{
+    background-color: red;
+    border-color: orangered;
+    color: white;
 }
 
-.quiz_wrapper .score .next button {
-    padding: 10px 60px;
-    color:white;
-    background-color: rgb(12, 21, 136);
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
+
+.see-result-btn{
+    display: none;
 }
 
-.quiz_wrapper .score .scoreCard{
-    width: 30%;
-    float: left;
-    font-size: 20px;
-    color: black;
-    
+.quiz-over-box{
+    text-align: center;
+    display: none;
+}
+.quiz-over-box h1{
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 0 20px;
+    color: tomato;
 }
 
-.quiz_wrapper .score .timer{
-    width: 20%;
-    float: left;
-    font-size: 20px;
-    color: black;
+.quiz-over-box h4{
+    font-size: 25px; 
+    font-weight: normal;
+    color:black; 
+    margin: 25px 0;
+}
+
+.quiz-over-box h4 span {
+    font-weight: 800;
 }
