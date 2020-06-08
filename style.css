@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif ;
+}
+
+body{ 
+    background-color: rgb(141, 235, 251);
+    margin: 0;
+    padding: 0;
+}
+
+.quiz_wrapper{
+    height: 500px;
+    width: 700px;
+    background-color: white;
+    margin: 30px auto;
+    border-radius: 8px;
+    padding:30px;
+}
+
+.quiz_wrapper .questions1{
+    padding: 15px;
+    background: purple;
+    border-radius: 8px;
+    color: #ffffff;
+    font-style: 20px;
+    float: left;
+    width: 100%;
+}
+
+.quiz_wrapper .options{
+      float: left; 
+      width: 100%;
+}
+
+.quiz_wrapper .options ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.quiz_wrapper .options ul li {
+    display: inline-block;
+    background-color: grey;
+    width: 80%;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;  
+    margin: 15px;
+    color: #ffffff;
+}
+
+.quiz_wrapper .score{
+    float: left;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.quiz_wrapper .score .next{
+    width: 40%;
+    float: left;
+}
+
+.quiz_wrapper .score .next button {
+    padding: 10px 60px;
+    color:white;
+    background-color: rgb(12, 21, 136);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.quiz_wrapper .score .scoreCard{
+    width: 30%;
+    float: left;
+    font-size: 20px;
+    color: black;
+    
+}
+
+.quiz_wrapper .score .timer{
+    width: 20%;
+    float: left;
+    font-size: 20px;
+    color: black;
+}
