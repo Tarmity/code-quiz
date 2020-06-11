@@ -132,21 +132,72 @@ body{
     color: #ffffff;
 }
 
+.quiz-box .option-box .option.already-answered{
+    pointer-events: none;
+}
+
 .quiz-box .option-box .option.correct{
     background-color: chartreuse;
     border-color: green;
     color: white;
+    animation: pulse 1s linear;
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 .quiz-box .option-box .option.wrong{
     background-color: red;
     border-color: orangered;
     color: white;
+    animation: shake 1s linear;
 }
 
 
-.see-result-btn{
+@keyframes shake{
+    0%, 20%, 30%{
+        transform: translateX(10px);
+    }
+    20%, 40%{
+        transform: translateX(-10px);
+    }
+    60%{
+        transform: translateX(-7px);
+    }
+    70%{
+        transform: translateX(7px);
+    }
+    80%{
+        transform: translateX(-4px);
+    }
+    90%{
+        transform: translateX(4px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+.see-result-btn, .next-question-btn{
     display: none;
+}
+
+.next-question-btn.show{
+    display: block;
+    animation: fadeInRight 1s ease;
+}
+
+.see-result-btn.show{
+
 }
 
 .quiz-over-box{

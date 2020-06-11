@@ -1,7 +1,12 @@
 
 const questionText=document.querySelector(".question-text");
 const optionBox=document.querySelector(".option-box");
+const currentQuestionNum=document.querySelector(".current-question-num");
 const questionIndex=0;
+const nextQuestionBtn=document.querySelector(".next-question-btn");
+const correctAnswer=document.querySelector(".correct-answers")
+let number=0;
+let score=0;
 //question and options and answers
 //array of objects
 myApp=[
@@ -33,8 +38,11 @@ myApp=[
 ]
 
 function load(){
+    number++;
     questionText.innerHTML=myApp[questionIndex].question;
     createOptions();
+    scoreBoard();
+    currentQuestionNum.innerHTML=number + " / " + myApp.length;
 }
 
 function createOptions(){
@@ -52,10 +60,35 @@ function check(ele){
      const id=ele.id;
      if(id == myApp[questionIndex].answer){
         ele.classList.add("correct");
+        score++;
+        scoreBoard();
      }
      else {
         ele.classList.add("wrong");
      }
+
+     disableOptions();
+     showNextQuestionBtn();
+}
+
+function disableOptions(){
+    for(let i = 0; i <optionBox.children.length; i++){
+        optionBox.children[i].classList.add("already-answered");
+    }
+}
+
+function showNextQuestionBtn(){
+    nextQuestionBtn.classList.add("show");
+}
+
+function scoreBoard() {
+    correctAnswer.innerHTML=score;
+ }
+
+//nextQuestionBtn.addEventListener("onclick, nextQuesion");
+
+function nextQuestion(){
+    load();
 }
 
 window.onload=()=>{
