@@ -197,7 +197,8 @@ body{
 }
 
 .see-result-btn.show{
-
+    display: block;
+    animation: fadeInRight 1s ease;
 }
 
 .quiz-over-box{

@@ -2,11 +2,13 @@
 const questionText=document.querySelector(".question-text");
 const optionBox=document.querySelector(".option-box");
 const currentQuestionNum=document.querySelector(".current-question-num");
-const questionIndex=0;
 const nextQuestionBtn=document.querySelector(".next-question-btn");
-const correctAnswer=document.querySelector(".correct-answers")
+const correctAnswer=document.querySelector(".correct-answers");
+const seeResultsBtn=document.querySelector(".see-result-btn");
+let questionIndex=0;
 let number=0;
 let score=0;
+
 //question and options and answers
 //array of objects
 myApp=[
@@ -46,6 +48,7 @@ function load(){
 }
 
 function createOptions(){
+    optionBox.innerHTML="";
     for(let i =0; i < myApp[questionIndex].options.length; i++){
         const option=document.createElement("div");
         option.innerHTML=myApp[questionIndex].options[i];
@@ -69,6 +72,10 @@ function check(ele){
 
      disableOptions();
      showNextQuestionBtn();
+
+     if(number == myApp.length){
+         quizOver();
+     }
 }
 
 function disableOptions(){
@@ -81,14 +88,25 @@ function showNextQuestionBtn(){
     nextQuestionBtn.classList.add("show");
 }
 
+function hideNextQuestionBtn(){
+    nextQuestionBtn.classList.remove("show");
+}
+
 function scoreBoard() {
     correctAnswer.innerHTML=score;
  }
 
-//nextQuestionBtn.addEventListener("onclick, nextQuesion");
+nextQuestionBtn.addEventListener("click", nextQuestion);
 
 function nextQuestion(){
+    questionIndex++;
     load();
+    hideNextQuestionBtn();
+}
+
+function quizOver(){
+    nextQuestionBtn.classList.remove("show");
+    seeResultsBtn.classList.add("show");
 }
 
 window.onload=()=>{
