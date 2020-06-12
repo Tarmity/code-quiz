@@ -5,9 +5,12 @@ const currentQuestionNum=document.querySelector(".current-question-num");
 const nextQuestionBtn=document.querySelector(".next-question-btn");
 const correctAnswer=document.querySelector(".correct-answers");
 const seeResultsBtn=document.querySelector(".see-result-btn");
+const remainingTime=document.querySelector(".remaining-time");
 let questionIndex=0;
 let number=0;
 let score=0;
+let interval;
+
 
 //question and options and answers
 //array of objects
@@ -68,14 +71,43 @@ function check(ele){
      }
      else {
         ele.classList.add("wrong");
+         
+        for(let i = 0; i <optionBox.children.length; i++){
+           if(optionBox.children[i].id==myApp[questionIndex].answer){
+               optionBox.children[i].classList.add("show-correct");
+           }
+        }
      }
 
      disableOptions();
      showNextQuestionBtn();
+     stopTimer();
 
      if(number == myApp.length){
          quizOver();
      }
+}
+
+function startTimer(){
+    let timeLimit= 15;
+    remainingTime.innerHTML=timeLimit;
+    interval = setInterval(()=>{
+      timeLimit--;
+      if(timeLimit < 10){
+          timeLimit= "0" + timeLimit;
+      }
+      if(timeLimit < 6){
+          remainingTime.classList.add("less-time");
+      }
+      remainingTime.innerHTML=timeLimit;
+      if(timeLimit == 0){
+          clearInterval(interval);
+      }
+    },1000)
+}
+
+function stopTimer(){
+
 }
 
 function disableOptions(){
@@ -110,5 +142,7 @@ function quizOver(){
 }
 
 window.onload=()=>{
+    startTimer();
     load();
+    
 }

@@ -74,6 +74,11 @@ body{
     border-radius: 30%;
 }
 
+.quiz-box .stats .quiz-time .remaining-time.less-time{
+    color: red;
+    border-color: red;
+}
+
 .quiz-box .stats .score-board{
     flex-basis: calc(50% - 20px);
     max-width: calc(50% - 20px);
@@ -136,6 +141,10 @@ body{
     pointer-events: none;
 }
 
+.quiz-box .option-box .option.show-correct{
+    background-color: chartreuse;
+    border-color: green;
+}
 .quiz-box .option-box .option.correct{
     background-color: chartreuse;
     border-color: green;
