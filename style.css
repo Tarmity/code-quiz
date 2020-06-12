@@ -20,6 +20,11 @@ body{
     display: none;
 }
 
+.quiz-home-box.show{
+    display: block;
+    animation: fadeInRight 1s ease;
+}
+
 .quiz-home-box h4{
     font-size: 40px;
     font-weight: 400;
@@ -238,6 +243,12 @@ body{
     text-align: center;
     display: none;
 }
+
+.quiz-over-box.show{
+    display: block;
+    animation: fadeInRight 1s ease;
+}
+
 .quiz-over-box h1{
     font-size: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

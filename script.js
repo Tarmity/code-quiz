@@ -7,6 +7,10 @@ const correctAnswer=document.querySelector(".correct-answers");
 const seeResultsBtn=document.querySelector(".see-result-btn");
 const remainingTime=document.querySelector(".remaining-time");
 const timeIsUpText=document.querySelector(".time-up-text");
+const quizHome=document.querySelector(".quiz-home-box");
+const quizBox= document.querySelector(".quiz-box");
+const quizOverBox=document.querySelector(".quiz-over-box");
+let attempt=0;
 let questionIndex=0;
 let number=0;
 let score=0;
@@ -80,6 +84,7 @@ function check(ele){
         }
      }
 
+     attempt++;
      disableOptions();
      showNextQuestionBtn();
      stopTimer();
@@ -90,7 +95,7 @@ function check(ele){
 }
 
 function timeIsUp(){
-    timeIsUpText.classList.add("show");
+    showGameOverText();
     for(let i = 0; i <optionBox.children.length; i++){
         if(optionBox.children[i].id==myApp[questionIndex].answer){
             optionBox.children[i].classList.add("show-correct");
@@ -104,6 +109,7 @@ function timeIsUp(){
 function startTimer(){
     let timeLimit= 15;
     remainingTime.innerHTML=timeLimit;
+    remainingTime.classList.remove("less-time");
     interval = setInterval(()=>{
       timeLimit--;
       if(timeLimit < 10){
@@ -121,7 +127,7 @@ function startTimer(){
 }
 
 function stopTimer(){
-
+    clearInterval(interval);
 }
 
 function disableOptions(){
@@ -138,6 +144,14 @@ function hideNextQuestionBtn(){
     nextQuestionBtn.classList.remove("show");
 }
 
+function showGameOverText(){
+    timeIsUpText.classList.add("show");
+}
+
+function hideGameOverText(){
+    timeIsUpText.classList.remove("show");
+}
+
 function scoreBoard() {
     correctAnswer.innerHTML=score;
  }
@@ -148,12 +162,29 @@ function nextQuestion(){
     questionIndex++;
     load();
     hideNextQuestionBtn();
+    hideGameOverText();
+    startTimer();
+}
+
+function quizResults(){
+    document.querySelector(".total-questions").innerHTML=myApp.length;
+    document.querySelector(".total-attempt").innerHTML=attempt;
+    document.querySelector(".total-correct").innerHTML=score;
+    document.querySelector(".total-wrong").innerHTML=attempt - score;
+    //document.querySelector(".total-percentage").innerHTML=myApp.length;
 }
 
 function quizOver(){
     nextQuestionBtn.classList.remove("show");
     seeResultsBtn.classList.add("show");
 }
+
+seeResultsBtn.addEventListener("click",()=>{
+    quizBox.style.display="none";
+    seeResultsBtn.classList.remove("show");
+    quizOverBox.classList.add("show");
+    quizResults();
+})
 
 window.onload=()=>{
     startTimer();
