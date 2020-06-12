@@ -6,6 +6,7 @@ const nextQuestionBtn=document.querySelector(".next-question-btn");
 const correctAnswer=document.querySelector(".correct-answers");
 const seeResultsBtn=document.querySelector(".see-result-btn");
 const remainingTime=document.querySelector(".remaining-time");
+const timeIsUpText=document.querySelector(".time-up-text");
 let questionIndex=0;
 let number=0;
 let score=0;
@@ -88,6 +89,18 @@ function check(ele){
      }
 }
 
+function timeIsUp(){
+    timeIsUpText.classList.add("show");
+    for(let i = 0; i <optionBox.children.length; i++){
+        if(optionBox.children[i].id==myApp[questionIndex].answer){
+            optionBox.children[i].classList.add("show-correct");
+        }
+     }
+
+     disableOptions();
+     showNextQuestionBtn();  
+}
+
 function startTimer(){
     let timeLimit= 15;
     remainingTime.innerHTML=timeLimit;
@@ -102,6 +115,7 @@ function startTimer(){
       remainingTime.innerHTML=timeLimit;
       if(timeLimit == 0){
           clearInterval(interval);
+          timeIsUp();
       }
     },1000)
 }

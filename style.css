@@ -63,6 +63,29 @@ body{
     text-align: left;
 }
 
+.quiz-box .stats .time-up-text{
+    /*display: inline-block;*/
+    color: red;
+    display: none;
+}
+
+.quiz-box .stats .time-up-text.show{
+    display: inline-block;
+    animation: fadeInOut 1s linear infinite;
+}
+
+@keyframes fadeInOut{
+    0%{
+        opacity: 0
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 .quiz-box .stats .quiz-time .remaining-time{
     height: 60px;
     width: 60px;
@@ -72,6 +95,7 @@ body{
     line-height: 56px;
     text-align: center;
     border-radius: 30%;
+    display: inline-block;
 }
 
 .quiz-box .stats .quiz-time .remaining-time.less-time{
