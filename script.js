@@ -100,10 +100,14 @@ function timeIsUp(){
         if(optionBox.children[i].id==myApp[questionIndex].answer){
             optionBox.children[i].classList.add("show-correct");
         }
-     }
-
+     } 
+     
      disableOptions();
      showNextQuestionBtn();  
+     
+     if(number == myApp.length){
+        quizOver();
+     }
 }
 
 function startTimer(){
