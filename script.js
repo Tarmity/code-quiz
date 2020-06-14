@@ -10,10 +10,14 @@ const timeIsUpText=document.querySelector(".time-up-text");
 const quizHome=document.querySelector(".quiz-home-box");
 const quizBox= document.querySelector(".quiz-box");
 const quizOverBox=document.querySelector(".quiz-over-box");
+const startAgainQuizBtn=document.querySelector(".start-again-quiz-btn");
+const seeHighScoreBtn=document.querySelector(".high-score-btn");
+const highScoreBox=document.querySelector(".highscore-box");
 let attempt=0;
 let questionIndex=0;
 let number=0;
 let score=0;
+let myArray=[];
 let interval;
 
 
@@ -103,7 +107,7 @@ function timeIsUp(){
      } 
      
      disableOptions();
-     showNextQuestionBtn();  
+     showResultsBtn();  
      
      if(number == myApp.length){
         quizOver();
@@ -148,6 +152,11 @@ function hideNextQuestionBtn(){
     nextQuestionBtn.classList.remove("show");
 }
 
+function showResultsBtn(){
+    seeResultsBtn.classList.add("show");
+}
+
+
 function showGameOverText(){
     timeIsUpText.classList.add("show");
 }
@@ -175,7 +184,16 @@ function quizResults(){
     document.querySelector(".total-attempt").innerHTML=attempt;
     document.querySelector(".total-correct").innerHTML=score;
     document.querySelector(".total-wrong").innerHTML=attempt - score;
-    //document.querySelector(".total-percentage").innerHTML=myApp.length;
+    const percentage=(score/myApp.length)*100;
+    document.querySelector(".total-percentage").innerHTML=percentage + "%";
+}
+
+function resetQuiz(){
+    attempt=0;
+    questionIndex=-1;
+    number=0;
+    score=0;
+    myArray=[];
 }
 
 function quizOver(){
@@ -190,9 +208,20 @@ seeResultsBtn.addEventListener("click",()=>{
     quizResults();
 })
 
+startAgainQuizBtn.addEventListener("click",()=>{
+    quizBox.style.display="block";
+    quizOverBox.classList.remove("show");
+    resetQuiz();
+    nextQuestion();
+})
+
+seeHighScoreBtn.addEventListener("click",()=>{
+    quizOverBox.classList.remove("show");
+    highScoreBox.classList.add("show");
+})
+
 window.onload=()=>{
     startTimer();
     load();
     
-}
 }

@@ -266,3 +266,13 @@ body{
 .quiz-over-box h4 span {
     font-weight: 800;
 }
+
+.highscore-box{
+    text-align: center;
+    display: none;
+}
+
+.highscore-box.show{
+    display: block;
+    animation: fadeInRight 1s ease;
+}
