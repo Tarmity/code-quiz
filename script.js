@@ -21,6 +21,13 @@ let number=0;
 let score=0;
 let myArray=[];
 let interval;
+// for the name to go on high score board
+let fullNameInput = document.querySelector("#fullName");
+let percentageInput = document.querySelector("#percentage");
+let submitBtn = document.querySelector("#Submit");
+let msgDiv = document.querySelector("#msg");
+let userFullNameSpan = document.querySelector("#user-name");
+let userpercentageSpan = document.querySelector("#total-percentage");
 
 
 //question and options and answers
