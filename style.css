@@ -314,3 +314,15 @@ label {
     vertical-align: middle;
     width: 100%;
   }
+
+  #Submit{
+    background-color: rgb(88, 231, 124);
+    text-align: center;
+    padding: 10px 60px;
+    color:white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 2px solid rgb(9, 100, 17);
+  }

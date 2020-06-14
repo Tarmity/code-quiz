@@ -27,7 +27,7 @@ let percentageInput = document.querySelector("#percentage");
 let submitBtn = document.querySelector("#Submit");
 let msgDiv = document.querySelector("#msg");
 let userFullNameSpan = document.querySelector("#user-name");
-let userpercentageSpan = document.querySelector("#total-percentage");
+let userPercentageSpan = document.querySelector("#total-percentage");
 
 
 //question and options and answers
@@ -243,6 +243,43 @@ startQuizBtn.addEventListener("click", ()=>{
     nextQuestion();
     
 })
+
+//to add full name to highest score
+renderLastRegistered();
+
+function displayMessage(type, message) {
+  msgDiv.textContent = message;
+  msgDiv.setAttribute("class", type);
+}
+
+function renderLastRegistered() {
+  var fullName = localStorage.getItem("user-name");
+  //var percentage = localStorage.getItem("total-percentage");
+
+  if (!fullName) {
+    return;
+  }
+
+  userFullNameSpan.textContent = fullName;
+  //userPercentageSpan.textContent = total-percentage;
+}
+
+submitBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  var fullName = document.querySelector("#fullName").value;
+  //var percentage = document.querySelector("#percentage").value;
+
+  if (fullName === "") {
+    displayMessage("error", "Full Name cannot be blank");
+  } else {
+    displayMessage("success", "Registered successfully");
+
+    localStorage.setItem("user-name", fullName);
+    //localStorage.setItem("total-percentage", total-percentage);
+    renderLastRegistered();
+  }
+});
 
 // window.onload=()=>{
 //     startTimer();
