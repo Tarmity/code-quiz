@@ -13,6 +13,8 @@ const quizOverBox=document.querySelector(".quiz-over-box");
 const startAgainQuizBtn=document.querySelector(".start-again-quiz-btn");
 const seeHighScoreBtn=document.querySelector(".high-score-btn");
 const highScoreBox=document.querySelector(".highscore-box");
+const goHomeBtn=document.querySelector(".go-to-home-btn");
+const startQuizBtn=document.querySelector(".start-quiz-btn");
 let attempt=0;
 let questionIndex=0;
 let number=0;
@@ -202,14 +204,15 @@ function quizOver(){
 }
 
 seeResultsBtn.addEventListener("click",()=>{
-    quizBox.style.display="none";
+    // quizBox.style.display="none";
+    quizBox.classList.remove("show");
     seeResultsBtn.classList.remove("show");
     quizOverBox.classList.add("show");
     quizResults();
 })
 
 startAgainQuizBtn.addEventListener("click",()=>{
-    quizBox.style.display="block";
+    quizBox.classList.add("show");
     quizOverBox.classList.remove("show");
     resetQuiz();
     nextQuestion();
@@ -220,8 +223,22 @@ seeHighScoreBtn.addEventListener("click",()=>{
     highScoreBox.classList.add("show");
 })
 
-window.onload=()=>{
-    startTimer();
-    load();
+goHomeBtn.addEventListener("click",()=>{
+    highScoreBox.classList.remove("show");
+    quizHome.classList.add("show");
+    //resetQuiz();
+})
+
+startQuizBtn.addEventListener("click", ()=>{
+    quizBox.classList.add("show");
+    quizHome.classList.remove("show");
+    resetQuiz();
+    nextQuestion();
     
-}
+})
+
+// window.onload=()=>{
+//     startTimer();
+//     load();
+    
+// }

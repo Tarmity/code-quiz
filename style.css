@@ -50,7 +50,12 @@ body{
 
 .quiz-box{
     background-color: white;
+    display: none;
+}
 
+.quiz-box.show{
+    display: block;
+    animation: fadInRight 1s ease;
 }
 
 .quiz-box .stats{
@@ -276,3 +281,36 @@ body{
     display: block;
     animation: fadeInRight 1s ease;
 }
+.start-again-quiz-btn,
+.go-home-btn{
+    margin-top: 15px;
+}
+
+.input-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    color: #212121;
+  }
+  
+  input {
+    background-color: #f1f3f4;
+    border-radius: 2px;
+    border-width: 0;
+    color: #5f6368;
+    font-size: 1em;
+    height: 45px;
+    line-height: 20px;
+    margin: 0;
+    margin-top: 10px;
+    max-width: 100%;
+    padding: 8px 8px 8px 8px;
+    transition-delay: 0s, 0s;
+    transition-duration: 0.2s, 0.2s;
+    transition-property: background-color, color;
+    transition-timing-function: ease, ease;
+    vertical-align: middle;
+    width: 100%;
+  }
