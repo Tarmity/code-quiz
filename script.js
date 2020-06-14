@@ -23,11 +23,11 @@ let myArray=[];
 let interval;
 // for the name to go on high score board
 let fullNameInput = document.querySelector("#fullName");
-let percentageInput = document.querySelector("#percentage");
+let correctAnswersInput = document.querySelector("#total-correct");
 let submitBtn = document.querySelector("#Submit");
 let msgDiv = document.querySelector("#msg");
 let userFullNameSpan = document.querySelector("#user-name");
-let userPercentageSpan = document.querySelector("#total-percentage");
+let userCorrectSpan = document.querySelector("#user-correct");
 
 
 //question and options and answers
@@ -124,15 +124,15 @@ function timeIsUp(){
 }
 
 function startTimer(){
-    let timeLimit= 15;
+    let timeLimit= 10;
     remainingTime.innerHTML=timeLimit;
     remainingTime.classList.remove("less-time");
     interval = setInterval(()=>{
       timeLimit--;
-      if(timeLimit < 10){
+      if(timeLimit < 7){
           timeLimit= "0" + timeLimit;
       }
-      if(timeLimit < 6){
+      if(timeLimit < 4){
           remainingTime.classList.add("less-time");
       }
       remainingTime.innerHTML=timeLimit;
@@ -140,6 +140,7 @@ function startTimer(){
           clearInterval(interval);
           timeIsUp();
       }
+     
     },1000)
 }
 
@@ -185,7 +186,8 @@ function nextQuestion(){
     load();
     hideNextQuestionBtn();
     hideGameOverText();
-    startTimer();
+    startTimer(); 
+     
 }
 
 function quizResults(){
@@ -203,6 +205,10 @@ function resetQuiz(){
     number=0;
     score=0;
     myArray=[];
+}
+
+function questionWrongTimer(){
+
 }
 
 function quizOver(){
@@ -253,22 +259,22 @@ function displayMessage(type, message) {
 }
 
 function renderLastRegistered() {
-  var fullName = localStorage.getItem("user-name");
-  //var percentage = localStorage.getItem("total-percentage");
+  let fullName = localStorage.getItem("user-name");
+  let userCorrect = localStorage.getItem("user-correct");
 
-  if (!fullName) {
+  if (!fullName || !userCorrect) {
     return;
   }
 
   userFullNameSpan.textContent = fullName;
-  //userPercentageSpan.textContent = total-percentage;
+  userCorrectSpan.textContent = userCorrect;
 }
 
 submitBtn.addEventListener("click", function(event) {
   event.preventDefault();
 
-  var fullName = document.querySelector("#fullName").value;
-  //var percentage = document.querySelector("#percentage").value;
+  let fullName = document.querySelector("#fullName").value;
+  let userCorrect =  document.querySelector(".total-correct").innerHTML=score;
 
   if (fullName === "") {
     displayMessage("error", "Full Name cannot be blank");
@@ -276,7 +282,7 @@ submitBtn.addEventListener("click", function(event) {
     displayMessage("success", "Registered successfully");
 
     localStorage.setItem("user-name", fullName);
-    //localStorage.setItem("total-percentage", total-percentage);
+    localStorage.setItem("user-correct", userCorrect);
     renderLastRegistered();
   }
 });
