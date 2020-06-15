@@ -4,6 +4,7 @@
 
 This repository is where i developed the Codde Quiz product. Not only do I work on code and issues here, I also publish my latested updates and functions. This source code is available to everyone under the Free Software Foundation, Inc. https//fsf.org/.
 
+![javaQuiz](https://user-images.githubusercontent.com/38900138/84622523-91e8f880-af20-11ea-9318-b9aaad393490.png)
 
 ## Table of Contents (Optional)
 
