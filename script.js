@@ -1,4 +1,4 @@
-
+//varibles for the code quiz
 const questionText=document.querySelector(".question-text");
 const optionBox=document.querySelector(".option-box");
 const currentQuestionNum=document.querySelector(".current-question-num");
@@ -21,7 +21,8 @@ let number=0;
 let score=0;
 let myArray=[];
 let interval;
-// for the name to go on high score board
+
+// Varibles for the name to go on high score board
 let fullNameInput = document.querySelector("#fullName");
 let correctAnswersInput = document.querySelector("#total-correct");
 let submitBtn = document.querySelector("#Submit");
@@ -60,6 +61,7 @@ myApp=[
     },
 ]
 
+// function to load the questions
 function load(){
     number++;
     questionText.innerHTML=myApp[questionIndex].question;
@@ -67,7 +69,7 @@ function load(){
     scoreBoard();
     currentQuestionNum.innerHTML=number + " / " + myApp.length;
 }
-
+//function and loop for questions 
 function createOptions(){
     optionBox.innerHTML="";
     for(let i =0; i < myApp[questionIndex].options.length; i++){
@@ -80,6 +82,7 @@ function createOptions(){
     }
 }
 
+//function to check if the answer is corret or wrong 
 function check(ele){
      const id=ele.id;
      if(id == myApp[questionIndex].answer){
@@ -107,6 +110,7 @@ function check(ele){
      }
 }
 
+//function for when time is up
 function timeIsUp(){
     showGameOverText();
     for(let i = 0; i <optionBox.children.length; i++){
@@ -123,6 +127,7 @@ function timeIsUp(){
      }
 }
 
+//function to start timer
 function startTimer(){
     let timeLimit= 10;
     remainingTime.innerHTML=timeLimit;
@@ -144,37 +149,37 @@ function startTimer(){
     },1000)
 }
 
+//function to stop timer once the question is answered
 function stopTimer(){
     clearInterval(interval);
 }
-
+//function to disable other options once the question is answered
 function disableOptions(){
     for(let i = 0; i <optionBox.children.length; i++){
         optionBox.children[i].classList.add("already-answered");
     }
 }
-
+//function to show the next question btn
 function showNextQuestionBtn(){
     nextQuestionBtn.classList.add("show");
 }
-
+//function to hide next question btn
 function hideNextQuestionBtn(){
     nextQuestionBtn.classList.remove("show");
 }
-
+//function to show results btn
 function showResultsBtn(){
     seeResultsBtn.classList.add("show");
 }
-
-
+//function to show game over text
 function showGameOverText(){
     timeIsUpText.classList.add("show");
 }
-
+//function to hide game over text 
 function hideGameOverText(){
     timeIsUpText.classList.remove("show");
 }
-
+//function or the score
 function scoreBoard() {
     correctAnswer.innerHTML=score;
  }
@@ -189,7 +194,7 @@ function nextQuestion(){
     startTimer(); 
      
 }
-
+//function for the quizz results page
 function quizResults(){
     document.querySelector(".total-questions").innerHTML=myApp.length;
     document.querySelector(".total-attempt").innerHTML=attempt;
@@ -198,7 +203,7 @@ function quizResults(){
     const percentage=(score/myApp.length)*100;
     document.querySelector(".total-percentage").innerHTML=percentage + "%";
 }
-
+//function to reset the quiz
 function resetQuiz(){
     attempt=0;
     questionIndex=-1;
@@ -206,18 +211,13 @@ function resetQuiz(){
     score=0;
     myArray=[];
 }
-
-function questionWrongTimer(){
-
-}
-
+// function for quizz over
 function quizOver(){
     nextQuestionBtn.classList.remove("show");
     seeResultsBtn.classList.add("show");
 }
 
 seeResultsBtn.addEventListener("click",()=>{
-    // quizBox.style.display="none";
     quizBox.classList.remove("show");
     seeResultsBtn.classList.remove("show");
     quizOverBox.classList.add("show");
@@ -239,7 +239,6 @@ seeHighScoreBtn.addEventListener("click",()=>{
 goHomeBtn.addEventListener("click",()=>{
     highScoreBox.classList.remove("show");
     quizHome.classList.add("show");
-    //resetQuiz();
 })
 
 startQuizBtn.addEventListener("click", ()=>{
@@ -287,8 +286,3 @@ submitBtn.addEventListener("click", function(event) {
   }
 });
 
-// window.onload=()=>{
-//     startTimer();
-//     load();
-    
-// }
