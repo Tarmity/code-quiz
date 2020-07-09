@@ -273,7 +273,7 @@ submitBtn.addEventListener("click", function(event) {
   event.preventDefault();
 
   let fullName = document.querySelector("#fullName").value;
-  let userCorrect =  document.querySelector(".total-correct").innerHTML=score;
+  let userCorrect = document.querySelector(".total-correct").innerHTML=score;
 
   if (fullName === "") {
     displayMessage("error", "Full Name cannot be blank");

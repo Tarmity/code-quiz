@@ -1,72 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>JavaScript Quiz</title>
-</head>
 
-<body>
+  <head>
+
+      <!-- Required meta tags -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+      <!-- Bootstrap Java Script-->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+      <!--style sheet created for contact form and page background colour-->
+      <link rel="stylesheet" href="style.css">
+    
+      <title>Tarmitys Portfolio</title>
+
+  </head>
+   <!-- BackGround image -->
+  <body class = "background">
+
+    <!--logo and button-->
+   
+    <div id="logo-container">
+      <img src="images/codeLogo.png" alt= "logo" class = "logo">
+      <button type ="button" class= "coverbtn" onclick="document.location='quizz.html'"> 
+        go to Quizz
+      </button> 
+  
+    </div>
       
-    <div class="quiz-home-box custom-box show">
-        <h1>JavaScript Quiz</h1>
-        <h4>You have 10 seconds to answer each question.</h4>
-        <button type="button" class="start-quiz-btn btn">Start the Quiz</button>
-    </div>
-
-    <div class= "quiz-box custom-box" >
-        <div class="stats">
-            <div class="quiz-time">
-            <div class= "remaining-time"></div>
-            <span class="time-up-text">Game Over</span>
-            </div>
-            <div class= "score-board">
-                <span class= "score-text">Score:</span>
-                <span class ="correct-answers"></span>
-            </div>
-        </div>
-        <div class= "question-box">
-            <div class= "current-question-num">
-                
-            </div>
-            <div class="question-text">
-                Your Fingernails and too long
-            </div>
-        </div>
-        <div class= "option-box">
-        </div>
-        <div class="next-question">
-            <button type="button" class= "next-question-btn btn">Next Question</button>
-            <button type="button" class= "see-result-btn btn">See Result</button>
-        </div>
-    </div>
-
-    <div class ="quiz-over-box custom-box">
-        <h1>Quiz Results</h1>
-        <h4>Total Questions: <span class= "total-questions"></span></h4>
-        <h4>Attempt: <span class= "total-attempt"></span></h4>
-        <h4>Correct: <span class= "total-correct" id = "total-correct" type ="text"></span></h4>
-        <h4>Wrong: <span class= "total-wrong"></span></h4>
-        <h4>Percentage: <span class= "total-percentage"></span></h4>
-        <h2>Enter Full Name for Highest Score</h2>
-        <form method="POST">
-            <div class = 'input-group'>
-                <input type= "text" name="fullName" id= "fullName" placeholder="Jane Doe"/> 
-            </div>
-            <div id ="msg"></div> 
-            <button id = "Submit">Submit</button>
-        </form>
-        <button type= "button" class="start-again-quiz-btn btn">Start Again</button>
-        <button type= "button" class= "high-score-btn btn">High Score</button>
-    </div>
-
-    <div class ="highscore-box custom-box">
-        <h1>Highest Score</h1>
-        <h4>Name:<span id= "user-name"></span></h4>
-        <h4>Correct: <span  id="user-correct"></span></h4>
-        <button type= "button" class="go-to-home-btn btn">Go To Home</button>
-    </div>
-<script src= "script.js"></script>
-</body>
+  </body>
 </html>
