@@ -1,4 +1,5 @@
 # Code-Quiz
+![License](https://img.shields.io/github/license/tarmity/code-quiz)
 
 ## Description 
 
