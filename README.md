@@ -14,6 +14,7 @@ If your README is very long, add a table of contents to make it easy for users t
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
+* [License](#License)
 
 
 ## Installation
@@ -31,4 +32,7 @@ take you to the first question, be sure not to waste any time as the timer has a
 ## Credits
 
 Followed brief instructions to achieve the desired outcome.
+
+## License
+  * MIT
 
